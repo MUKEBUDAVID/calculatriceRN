@@ -1,46 +1,82 @@
-import React from 'react'
-import { StyleSheet, Text, View,Button } from 'react-native'
+import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import React, { useState,useEffect } from "react";
 
-export default function Details({navigation,route}) {
+export default function Details({ navigation }) {
+ const [count, setCount] = React.useState(0);
 
-    const { nom,Prenom,itemId} = route.params;
 
-    
+ useEffect(() => {
+   
+    navigation.setOptions({
+      headerRight: () => (
+        <Button onPress={() => setCount((c) => c + 1)} title="Update count" />
+      ),
+    });
+
+
+  }, [navigation]);
+
+
+
+
+
+
+
+
   return (
-    <View style={styles.container}>
-      <Text>Details</Text>
-      <Text>{nom }</Text>
-      <Text>{Prenom}</Text>
-      <Text>{itemId}</Text>
-      {/* <Button
-        title="Go to Test"
-        onPress={() => navigation.navigate('Test')}
-      /> */}
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>home</Text>
 
+      <View style={styles.locale}>
+        <Button
+          title="Go to Details"
+          onPress={() =>
+            navigation.navigate("Details", {
+              nom: "mukebu",
+              Prenom: "David",
+            })
+          }
+        />
 
-<Button
-        title="Go to Details... again"
-        onPress={() =>
-          navigation.push('Details', {
-            itemId: Math.floor(Math.random() * 100),
-          })
-        }
-      />
-      {/* <Button title="Go back" onPress={() => navigation.goBack()} /> */}
+        <View></View>
+        <Button
+          title="Go to Test"
+          onPress={() => navigation.navigate("Test")}
+        />
+      </View>
+
+      <View style={styles.divinput}>
+        <TextInput
+          multiline={true}
+          numberOfLines={4}
+          onChangeText={(text) => setText(text)}
+          placeholder="Type something"
+          placeholderTextColor="grey"
+          value={" "}
+          style={styles.input}
+        />
+      </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'blue',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop:40,
-        
-      
-       
-      }
-   
-})
+  locale: {
+    justifyContent: "space-between",
+    width: 200,
+    height: 100,
+  },
+  divinput: {
+    width: 200,
+    height: 50,
+    marginTop: 50,
+  },
+  input: {
+    width: "100%",
+    height: "100%",
+    borderWidth: 2,
+    borderRadius: 20,
+    textAlign: "left",
+    paddingLeft: 10,
+  },
+});
