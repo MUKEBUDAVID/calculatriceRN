@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./view/Home.jsx";
@@ -27,19 +27,7 @@ export default function App() {
 
 
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: 'red',
-//     alignItems: 'center',
-//     justifyContent: 'space-between',
-//     // paddingTop:40,
-//     flexDirection:'row',
-//     width:"100%"
-    
-//   }
 
-// });
 
 
 

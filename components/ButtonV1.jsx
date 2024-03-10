@@ -18,11 +18,8 @@ export default function ButtonV1({
       },
       style
     ]}>
+ <Text style={styleText}>{children}</Text>   
 
-
-      <Text style={styleText}>{children}</Text>
-   
-    
-  </Pressable>
+     </Pressable>
   )
 }
